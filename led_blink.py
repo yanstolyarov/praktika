@@ -8,3 +8,4 @@ while True:
     sleep(1)
     light.off()
     sleep(1)
+    print("led working")
