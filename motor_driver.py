@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import RPi.GPIO as IO          #calling header file which helps us use GPIO’s of PI
 
 import time                            #calling time to provide delays in program
