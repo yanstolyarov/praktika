@@ -1,10 +1,10 @@
 from gpiozero import LED
-import time
+from time import sleep
 
 light = LED(13)
 
-while 1:
+while True:
     light.on()
-    time.sleep(1)
+    sleep(1)
     light.off()
-    time.sleep(1)
+    sleep(1)
