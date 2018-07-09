@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from gpiozero import DistanceSensor
 from time import sleep
 
