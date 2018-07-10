@@ -3,10 +3,10 @@
 from RPi import GPIO
 import time                            #calling time to provide delays in program
 
-e1 = 4                         #управляющий ШИМ-порт первого двигателя (GPIO19 например)
-m1 = 18                         #управляющий порт первого двигателя
-e2 = 6                         #управляющий ШИМ-порт первого двигателя
-m2 = 12                         #управляющий порт первого двигателя
+e1 = 4
+m1 = 18
+e2 = 6
+m2 = 12                        
 
 GPIO.setwarnings(False)           #do not show any warnings
 
