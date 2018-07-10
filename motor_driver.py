@@ -1,6 +1,6 @@
 #!/usr/bin/python
-import RPi.GPIO as IO          #calling header file which helps us use GPIO’s of PI
-
+#import RPi.GPIO as IO          #calling header file which helps us use GPIO’s of PI
+from RPi import GPIO as IO
 import time                            #calling time to provide delays in program
 
 e1 = 4                         #управляющий ШИМ-порт первого двигателя (GPIO19 например)
