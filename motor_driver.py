@@ -17,7 +17,7 @@ GPIO.setup(m2,GPIO.OUT)
 
 p_w1 = GPIO.PWM(e1,100)
 p_w2 = GPIO.PWM(e2,100)
-p_w1.start(0)                              
+p_w1.start(0)
 p_w2.start(0)
 
 def motor_pwm_forw_1(x):
@@ -51,7 +51,7 @@ def all_motor_pwm_reverse(x):
 for t in range(10):
     motor_pwm_forw_1(50)
     motor_pwm_forw_2(80)
-    sleep(1)
+    time.sleep(1)
     motor_pwm_reverse_1(40)
     motor_pwm_reverse_2(60)
-    sleep(2)
+    time.ssleep(2)
