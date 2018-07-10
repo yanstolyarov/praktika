@@ -1,25 +1,23 @@
-#!/usr/bin/python
-#import RPi.GPIO as IO          #calling header file which helps us use GPIO’s of PI
 from RPi import GPIO
-import time                            #calling time to provide delays in program
+import time
 
 e1 = 4
 m1 = 18
 e2 = 6
 m2 = 12
 
-GPIO.setwarnings(False)           #do not show any warnings
+GPIO.setwarnings(False)
 
-GPIO.setmode (GPIO.BCM)         #we are programming the GPIO by BCM pin numbers. (PIN35 as ‘GPIO19’)
+GPIO.setmode (GPIO.BCM)
 
-GPIO.setup(e1,GPIO.OUT)           # initialize GPIO19 as an output.
+GPIO.setup(e1,GPIO.OUT)
 GPIO.setup(e2,GPIO.OUT)
 GPIO.setup(m1,GPIO.OUT)
 GPIO.setup(m2,GPIO.OUT)
 
-p_w1 = GPIO.PWM(e1,100)          #GPIO19 as PWM output, with 100Hz frequency
+p_w1 = GPIO.PWM(e1,100)
 p_w2 = GPIO.PWM(e2,100)
-p_w1.start(0)                              #generate PWM signal with 0% duty cycle
+p_w1.start(0)                              
 p_w2.start(0)
 
 def motor_pwm_forw_1(x):
