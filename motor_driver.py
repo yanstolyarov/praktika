@@ -54,4 +54,4 @@ for t in range(10):
     time.sleep(1)
     motor_pwm_reverse_1(40)
     motor_pwm_reverse_2(60)
-    time.ssleep(2)
+    time.sleep(2)
