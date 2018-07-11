@@ -28,12 +28,12 @@ while True:
     current_time = time.time()
     if button.is_pressed:
         print("Button is pressed")
-        press_button_time = time.time()
-        if press_button_time <= t + 7:
-            motor_l.stop()#выключить двигатели - финиш
-            motor_r.stop()
-            print("Finish")
-            x = input()
+#        press_button_time = time.time()
+#        if press_button_time <= t + 7:
+#            motor_l.stop()#выключить двигатели - финиш
+#            motor_r.stop()
+#            print("Finish")
+#            x = input()
         else
             time.sleep(2)
             #выключить двигатели

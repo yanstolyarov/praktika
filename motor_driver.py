@@ -55,3 +55,7 @@ for t in range(10):
     motor_pwm_reverse_1(40)
     motor_pwm_reverse_2(60)
     time.sleep(2)
+
+
+motor_pwm_forw_1(0)
+motor_pwm_forw_2(0)
