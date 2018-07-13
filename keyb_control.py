@@ -19,8 +19,8 @@ p_w2 = GPIO.PWM(e2,100)
 p_w1.start(0)
 p_w2.start(0)
 
-enab1 = GPIO.output(21, GPIO.HIGH)
-enab2 = GPIO.output(19, GPIO.HIGH)
+enab1 = GPIO.output(2, GPIO.HIGH)
+enab2 = GPIO.output(3, GPIO.HIGH)
 
 import sys,tty,termios
 class _Getch:
@@ -69,7 +69,7 @@ def get():
                 if k!='':break
         if k=='\x1b[A':
                 #print "up"
-                all_motor_pwm_forward(60)
+                all_motor_pwm_forward(80)
         elif k=='\x1b[B':
                 #print "down"
                 all_motor_pwm_reverse(60)
