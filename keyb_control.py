@@ -43,10 +43,12 @@ class _Getch:
             return ch
 
 def motor_pwm_forw_1(x):
+    print('right')
     p_w1.ChangeDutyCycle(x)
     GPIO.output(m1, GPIO.LOW)
 
 def motor_pwm_forw_2(x):
+    print('left')
     p_w2.ChangeDutyCycle(x)
     GPIO.output(m2, GPIO.LOW)
 
@@ -59,12 +61,14 @@ def motor_pwm_reverse_2(x):
     GPIO.output(m2, GPIO.HIGH)
 
 def all_motor_pwm_forward(x):
+    print('forw')
     p_w1.ChangeDutyCycle(x)
     GPIO.output(m1, GPIO.LOW)
     p_w2.ChangeDutyCycle(x)
     GPIO.output(m2, GPIO.LOW)
 
 def all_motor_pwm_reverse(x):
+    print('reverse')
     p_w1.ChangeDutyCycle(x)
     GPIO.output(m1, GPIO.HIGH)
     p_w2.ChangeDutyCycle(x)
