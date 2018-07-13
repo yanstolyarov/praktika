@@ -1,11 +1,14 @@
-from gpiozero import Button
-from signal import pause
+import RPi.GPIO as GPIO
+import time
+import os
 
-def say_hello():
-    print("Hello!")
+#adjust for where your switch is connected
+buttonPin = 17
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(buttonPin,GPIO.IN)
 
-button = Button(2)
-
-button.when_pressed = say_hello
-
-pause()
+while True:
+  #assuming the script to call is long enough we can ignore bouncing
+  if (GPIO.input(buttonPin)):
+    #this is the script that will be called (as root)
+    os.system("python /home/pi/Documents/praktika/praktika/start.py")
