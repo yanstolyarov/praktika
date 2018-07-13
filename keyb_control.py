@@ -80,19 +80,19 @@ def get():
                 k=inkey()
                 if k!='':break
         if k=='\x1b[A':
-                #print "up"
+                print "up"
                 all_motor_pwm_forward(80)
         elif k=='\x1b[B':
-                #print "down"
+                print "down"
                 all_motor_pwm_reverse(60)
         elif k=='\x1b[C':
-                #print "right"
+                print "right"
                 motor_pwm_forw_1(60)
         elif k=='\x1b[D':
-                #print "left"
+                print "left"
                 motor_pwm_forw_2(60)
         else:
-                #print "not an arrow key!"
+                print "not an arrow key!"
                 all_motor_pwm_reverse(0)
 
 def main():
