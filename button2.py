@@ -23,6 +23,6 @@ while True:
             #update previous input
             prev_input = input
             #slight pause to debounce
-            time.sleep(0.05))
+            time.sleep(0.05)
     else:
         break
