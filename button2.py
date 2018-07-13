@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+from RPi import GPIO
 import time
 import os
 #initialise a previous input variable to 0 (assume button not pressed last)
@@ -26,4 +26,3 @@ while True:
         time.sleep(0.05))
     else:
         break
-    
