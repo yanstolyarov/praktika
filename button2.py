@@ -22,7 +22,7 @@ def button1_status(pin):
     print("b1",curr1)
     if ((prev1 == 0) and curr1 == 0):
         print("Button1 pressed")
-        prev1 = curr1
+    prev1 = curr1
 
 def button2_status(pin):
     global curr2
@@ -31,7 +31,7 @@ def button2_status(pin):
     print("b2",curr2)
     if ((prev2 == 0) and curr2 == 0):
         print("Button2 pressed")
-        prev2 = curr2
+    prev2 = curr2
 
 while True:
     button1_status(17)
