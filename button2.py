@@ -24,7 +24,7 @@ while True:
                 print("Button1 pressed")
                 #update previous input
                 break
-            else
+            else:
                 print('Button1 is not pressed')
             prev_input = input
             #slight pause to debounce
@@ -40,7 +40,7 @@ while True:
                 print("Button2 pressed")
                 #update previous input
                 break
-            else
+            else:
                 print('Button2 is not pressed')
             prev_input = input
             #slight pause to debounce
