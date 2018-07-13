@@ -9,10 +9,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
 GPIO.setup(10,GPIO.IN)
 
-prev1 = 1
-prev2 = 1
-curr1 = 1
-curr2 = 2
+global prev1 = 1
+global prev2 = 1
+global curr1 = 1
+global curr2 = 2
 
 
 def button1_status(pin):
