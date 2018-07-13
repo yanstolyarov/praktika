@@ -11,37 +11,23 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(button1Pin,GPIO.IN)
 GPIO.setup(button2Pin,GPIO.IN)
 
+prev1 = 1
+prev2 = 1
+
+
+def button1_status(pin):
+    curr1 = GPIO.input(pin)
+    if ((prev1 == 0) and curr1 == 0):
+        print("Button1 pressed")
+        prev1 = curr1
+
+def button2_status(pin):
+    curr2 = GPIO.input(pin)
+    if ((prev2 == 0) and curr2 == 0):
+        print("Button2 pressed")
+        prev2 = curr2
+
 while True:
-    #assuming the script to call is long enough we can ignore bouncing
-    if (GPIO.input(button1Pin)):
-        #this is the script that will be called (as root)
-        #os.system("python /home/pi/start.py"
-        while True:
-            #take a reading
-            input = GPIO.input(17)
-            #if the last reading was low and this one high, print
-            if ((prev_input == 0) and input == 0):
-                print("Button1 pressed")
-                #update previous input
-                break
-            else:
-                print('Button1 is not pressed')
-            prev_input = input
-            #slight pause to debounce
-            time.sleep(0.05)
-    if (GPIO.input(button2Pin)):
-    #this is the script that will be called (as root)
-    #os.system("python /home/pi/start.py"
-        while True:
-            #take a reading
-            input = GPIO.input(10)
-            #if the last reading was low and this one high, print
-            if ((prev_input == 0) and input == 0):
-                print("Button2 pressed")
-                #update previous input
-                break
-            else:
-                print('Button2 is not pressed')
-            prev_input = input
-            #slight pause to debounce
-            time.sleep(0.05)
+    button1_status(17)
+    button2_status(10)
+    time.sleep(0.05)
