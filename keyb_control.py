@@ -3,13 +3,14 @@ from gpiozero import DistanceSensor
 import time
 from gpiozero import Button
 from signal import pause
-
-turn = 2#turn time
+import sys,tty,termios
 
 e1 = 4#left
 m1 = 18
 e2 = 6#right
 m2 = 12
+ena = 2
+enb = 3
 
 GPIO.setwarnings(False)
 
@@ -19,18 +20,14 @@ GPIO.setup(e1,GPIO.OUT)
 GPIO.setup(e2,GPIO.OUT)
 GPIO.setup(m1,GPIO.OUT)
 GPIO.setup(m2,GPIO.OUT)
-GPIO.setup(2,GPIO.OUT)
-GPIO.setup(3,GPIO.OUT)
+GPIO.setup(ena,GPIO.OUT)
+GPIO.setup(enb,GPIO.OUT)
 
-p_w1 = GPIO.PWM(e1,100)
-p_w2 = GPIO.PWM(e2,100)
-p_w1.start(0)
-p_w2.start(0)
+GPIO.output(ena, GPIO.HIGH)
+GPIO.output(enb, GPIO.HIGH)
 
-enab1 = GPIO.output(2, GPIO.HIGH)
-enab2 = GPIO.output(3, GPIO.HIGH)
 
-import sys,tty,termios
+
 class _Getch:
     def __call__(self):
             fd = sys.stdin.fileno()
