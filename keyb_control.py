@@ -1,3 +1,9 @@
+from RPi import GPIO
+from gpiozero import DistanceSensor
+import time
+from gpiozero import Button
+from signal import pause
+
 turn = 2#turn time
 
 e1 = 4#left
