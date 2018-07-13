@@ -100,7 +100,11 @@ def get():
                 print "not an arrow key!"
                 time.sleep(0.5)
                 all_motor_pwm_reverse(0)
-                break
 
-while 1:
-    get()
+
+def main():
+        for i in range(0,20):
+                get()
+
+if __name__=='__main__':
+        main()
