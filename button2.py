@@ -18,11 +18,11 @@ while True:
         #take a reading
         input = GPIO.input(17)
         #if the last reading was low and this one high, print
-        if ((prev_input) and input):
+        if ((prev_input == 1) and input == 1):
             print("Button pressed")
             #update previous input
-            prev_input = input
-            #slight pause to debounce
-            time.sleep(0.05)
+        prev_input = input
+        #slight pause to debounce
+        time.sleep(0.05)
     else:
         break
