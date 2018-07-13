@@ -76,6 +76,7 @@ def all_motor_pwm_reverse(x):
     GPIO.output(m2, GPIO.HIGH)
 
 def stop():
+    print('stop')
     p_w1.ChangeDutyCycle(0)
     GPIO.output(m1, GPIO.LOW)
     p_w2.ChangeDutyCycle(0)
