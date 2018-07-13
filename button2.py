@@ -9,19 +9,23 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
 GPIO.setup(10,GPIO.IN)
 
-global prev1 = 1
-global prev2 = 1
-global curr1 = 1
-global curr2 = 2
+prev1 = 1
+prev2 = 1
+curr1 = 1
+curr2 = 2
 
 
 def button1_status(pin):
+    global curr1
+    global prev1
     curr1 = GPIO.input(pin)
     if ((prev1 == 0) and curr1 == 0):
         print("Button1 pressed")
         prev1 = curr1
 
 def button2_status(pin):
+    global curr2
+    global prev2
     curr2 = GPIO.input(pin)
     if ((prev2 == 0) and curr2 == 0):
         print("Button2 pressed")
