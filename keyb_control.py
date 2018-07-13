@@ -19,6 +19,8 @@ GPIO.setup(e1,GPIO.OUT)
 GPIO.setup(e2,GPIO.OUT)
 GPIO.setup(m1,GPIO.OUT)
 GPIO.setup(m2,GPIO.OUT)
+GPIO.setup(2,GPIO.OUT)
+GPIO.setup(3,GPIO.OUT)
 
 p_w1 = GPIO.PWM(e1,100)
 p_w2 = GPIO.PWM(e2,100)
