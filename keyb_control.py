@@ -5,10 +5,10 @@ from gpiozero import Button
 from signal import pause
 import sys,tty,termios
 
-e1 = 4#left
-m1 = 18
-e2 = 6#right
-m2 = 12
+e1 = 18#left
+m1 = 4
+e2 = 12#right
+m2 = 6
 ena = 2
 enb = 3
 
