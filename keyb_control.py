@@ -75,6 +75,12 @@ def all_motor_pwm_reverse(x):
     p_w2.ChangeDutyCycle(x)
     GPIO.output(m2, GPIO.HIGH)
 
+def stop():
+    p_w1.ChangeDutyCycle(0)
+    GPIO.output(m1, GPIO.LOW)
+    p_w2.ChangeDutyCycle(0)
+    GPIO.output(m2, GPIO.LOW)
+
 def get():
         inkey = _Getch()
         while(1):
@@ -82,28 +88,28 @@ def get():
                 if k!='':break
         if k=='\x1b[A':
                 #print "up"
-                all_motor_pwm_forward(60)
+                all_motor_pwm_forward(40)
                 time.sleep(0.5)
-                all_motor_pwm_forward(0)
+                stop()
         elif k=='\x1b[B':
                 #print "down"
-                all_motor_pwm_reverse(60)
+                all_motor_pwm_reverse(40)
                 time.sleep(0.5)
-                all_motor_pwm_reverse(0)
+                stop()
         elif k=='\x1b[C':
                 #print "right"
-                motor_pwm_forw_1(60)
+                motor_pwm_forw_1(40)
                 time.sleep(0.5)
-                all_motor_pwm_reverse(0)
+                stop()
         elif k=='\x1b[D':
                 #print "left"
-                motor_pwm_forw_2(60)
+                motor_pwm_forw_2(40)
+                stop
                 time.sleep(0.5)
-                all_motor_pwm_reverse(0)
         else:
                 #print "not an arrow key!"
+                stop()
                 time.sleep(0.5)
-                all_motor_pwm_reverse(0)
 
 
 def main():
