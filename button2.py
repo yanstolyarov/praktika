@@ -5,14 +5,14 @@ import os
 prev_input = 0
 
 #adjust for where your switch is connected
-button1Pin = 17
-button2Pin = 10
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(button1Pin,GPIO.IN)
-GPIO.setup(button2Pin,GPIO.IN)
+GPIO.setup(17,GPIO.IN)
+GPIO.setup(10,GPIO.IN)
 
 prev1 = 1
 prev2 = 1
+curr1 = 1
+curr2 = 2
 
 
 def button1_status(pin):
