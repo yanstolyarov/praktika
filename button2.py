@@ -21,6 +21,8 @@ while True:
         if ((prev_input == 0) and input == 0):
             print("Button pressed")
             #update previous input
+        else
+            print('Button is not pressed')
         prev_input = input
         #slight pause to debounce
         time.sleep(0.05)
