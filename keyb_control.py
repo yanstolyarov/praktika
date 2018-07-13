@@ -25,6 +25,10 @@ GPIO.setup(enb,GPIO.OUT)
 
 GPIO.output(ena, GPIO.HIGH)
 GPIO.output(enb, GPIO.HIGH)
+p_w1 = GPIO.PWM(e1,100)
+p_w2 = GPIO.PWM(e2,100)
+p_w1.start(0)
+p_w2.start(0)
 
 
 
