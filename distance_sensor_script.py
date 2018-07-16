@@ -1,8 +1,8 @@
 #!/usr/bin/python
-from gpiozero import DistanceSensor
-from time import sleep
+#from gpiozero import DistanceSensor
+#from time import sleep
 
-sensor1 = DistanceSensor(20, 16)#echo first then trick
+#sensor1 = DistanceSensor(20, 16)#echo first then trick
 #sensor2 = DistanceSensor(22, 27)
 
 
@@ -16,8 +16,19 @@ sensor1 = DistanceSensor(20, 16)#echo first then trick
 #    dist1 = sensor2.distance
 #    print('dist2:', dist2)
 
-while True:
-    dist1 = sensor1.distance
-    print('dist1:', dist1)
+#while True:
+#    dist1 = sensor1.distance
+#    print('dist1:', dist1)
     #dist1()
     #dist2()
+
+#---example---
+
+from gpiozero import DistanceSensor
+from time import sleep
+
+sensor = DistanceSensor(20, 16)
+
+while True:
+    print('Distance to nearest object is', sensor.distance, 'm')
+    sleep(1)
