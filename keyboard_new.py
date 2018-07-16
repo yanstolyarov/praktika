@@ -18,6 +18,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
 GPIO.setup(10,GPIO.IN)
 
+sleep = 0.1
+power = 40
+button_delay = 0.3
+
 prev1 = 1
 prev2 = 1
 curr1 = 1
@@ -55,10 +59,6 @@ def getch():
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return ch
 
-sleep = 0.1
-power = 40
-button_delay = 0.3
-
 def dist1():
     global dist1
     dist1 = sensor1.distance
@@ -82,27 +82,27 @@ while True:
         print("Stop!")
         exit(0)
 
-    elif (char == "a"):
+    elif (char == "d"):
         print("Left pressed")
         MD.motor_pwm_forw_2(power)
         MD.motor_pwm_reverse_1(power)
         time.sleep(button_delay)
         MD.stop()
 
-    elif (char == "d"):
+    elif (char == "a"):
         print("Right pressed")
         MD.motor_pwm_forw_1(power)
         MD.motor_pwm_reverse_2(power)
         time.sleep(button_delay)
         MD.stop()
 
-    elif (char == "w"):
+    elif (char == "s"):
         print("Up pressed")
         MD.all_motor_pwm_forward(power)
         time.sleep(button_delay)
         MD.stop()
 
-    elif (char == "s"):
+    elif (char == "w"):
         print("Down pressed")
         MD.all_motor_pwm_reverse(power)
         time.sleep(button_delay)
