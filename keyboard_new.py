@@ -18,6 +18,7 @@ def getch():
 
 sleep = 0.1
 power = 40
+button_delay = 0.1
 
 while True:
     #print(dist1, dist2)
