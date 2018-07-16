@@ -11,6 +11,7 @@ def dist1():
     global dist1
     dist1 = sensor1.distance
     print('dist1:', dist1)
+    print('test3')
 
 def dist2():
     global dist2
