@@ -44,12 +44,10 @@ class _Getch:
             return ch
 
 def motor_pwm_forw_1(x):
-    print('right')
     p_w1.ChangeDutyCycle(x)
     GPIO.output(m1, GPIO.LOW)
 
 def motor_pwm_forw_2(x):
-    print('left')
     p_w2.ChangeDutyCycle(x)
     GPIO.output(m2, GPIO.LOW)
 
@@ -62,21 +60,18 @@ def motor_pwm_reverse_2(x):
     GPIO.output(m2, GPIO.HIGH)
 
 def all_motor_pwm_forward(x):
-    print('forw')
     p_w1.ChangeDutyCycle(x)
     GPIO.output(m1, GPIO.LOW)
     p_w2.ChangeDutyCycle(x)
     GPIO.output(m2, GPIO.LOW)
 
 def all_motor_pwm_reverse(x):
-    print('reverse')
     p_w1.ChangeDutyCycle(x)
     GPIO.output(m1, GPIO.HIGH)
     p_w2.ChangeDutyCycle(x)
     GPIO.output(m2, GPIO.HIGH)
 
 def stop():
-    print('stop')
     p_w1.ChangeDutyCycle(0)
     GPIO.output(m1, GPIO.LOW)
     p_w2.ChangeDutyCycle(0)
@@ -90,27 +85,29 @@ def get():
         if k=='\x1b[A':
                 #print "up"
                 all_motor_pwm_forward(40)
-                time.sleep(0.5)
+                time.sleep(0.2)
                 stop()
         elif k=='\x1b[B':
                 #print "down"
                 all_motor_pwm_reverse(40)
-                time.sleep(0.5)
+                time.sleep(0.2)
                 stop()
         elif k=='\x1b[C':
                 #print "right"
                 motor_pwm_forw_1(40)
-                time.sleep(0.5)
+                motor_pwm_reverse_2(40)
+                time.sleep(0.2)
                 stop()
         elif k=='\x1b[D':
                 #print "left"
                 motor_pwm_forw_2(40)
-                stop
-                time.sleep(0.5)
+                motor_pwm_reverse_1(40)
+                time.sleep(0.2)
+                stop()
         else:
                 #print "not an arrow key!"
                 stop()
-                time.sleep(0.5)
+                time.sleep(0.2)
 
 
 def main():
