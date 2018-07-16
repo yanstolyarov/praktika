@@ -7,6 +7,7 @@ sensor2 = DistanceSensor(22, 27)
 
 
 def dist1():
+    print('test2')
     global dist1
     dist1 = sensor1.distance
     print('dist1:', dist1)
@@ -17,5 +18,6 @@ def dist2():
     print('dist2:', dist2)
 
 while True:
+    print('test1')
     dist1()
     dist2()
