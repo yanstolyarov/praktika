@@ -20,7 +20,7 @@ sleep = 0.1
 power = 40
 
 while True:
-    print(dist1, dist2)
+    #print(dist1, dist2)
 
     char = getch()
 
