@@ -3,7 +3,7 @@
 # adapted from https://github.com/recantha/EduKit3-RC-Keyboard/blob/master/rc_keyboard.py
 
 import sys, termios, tty, os, time
-import motor_driver_new.py as MD
+import motor_driver_new as MD
 
 def getch():
     fd = sys.stdin.fileno()
