@@ -2,8 +2,8 @@
 from gpiozero import DistanceSensor
 from time import sleep
 
-sensor1 = DistanceSensor(20, 16)#echo first then trick
-sensor2 = DistanceSensor(27, 22)
+sensor1 = DistanceSensor(16, 20)#echo first then trick
+sensor2 = DistanceSensor(22, 27)
 
 
 def dist1():
