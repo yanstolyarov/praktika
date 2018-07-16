@@ -33,7 +33,7 @@ def button2_status(pin):
         print("Button2 pressed")
     prev2 = curr2
 
-while True:
-    button1_status(17)
-    button2_status(10)
-    time.sleep(0.05)
+#while True:
+#    button1_status(17)
+#    button2_status(10)
+#    time.sleep(0.05)

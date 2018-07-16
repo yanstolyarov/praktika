@@ -4,6 +4,8 @@
 
 import sys, termios, tty, os, time
 import motor_driver_new as MD
+import distance_sensor_script as DS
+import button_script as BS
 
 def getch():
     fd = sys.stdin.fileno()
@@ -18,18 +20,20 @@ def getch():
 
 sleep = 0.1
 power = 40
-button_delay = 0.1
+button_delay = 0.3
 
 while True:
-    #print(dist1, dist2)
+    print(DS.dist1, DS.dist2)
+    print(BS.button1_status(17), BS.button2_status(10))
 
     char = getch()
+
 
     if (char == "p"):
         print("Stop!")
         exit(0)
 
-    if (char == "a"):
+    elif (char == "a"):
         print("Left pressed")
         MD.motor_pwm_forw_2(power)
         MD.motor_pwm_reverse_1(power)
