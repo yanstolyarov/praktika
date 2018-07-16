@@ -23,7 +23,7 @@ power = 40
 button_delay = 0.3
 
 while True:
-    print(DS.dist1, DS.dist2)
+    print(DS.dist1(), DS.dist2())
     print(BS.button1_status(17), BS.button2_status(10))
 
     char = getch()
