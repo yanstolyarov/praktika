@@ -7,18 +7,12 @@ sensor2 = DistanceSensor(5, 11)
 
 
 def dist1():
-    global dist1
-    dist1 = sensor1.distance
-    print('dist1:', dist1)
+    print('dist1:', sensor1.distance)
 
 def dist2():
-    global dist2
-    dist1 = sensor2.distance
-    print('dist2:', dist2)
+    print('dist2:', sensor2.distance)
 
 while True:
-#    dist1 = sensor1.distance
-#    print('dist1:', dist1)
     dist1()
     dist2()
 
