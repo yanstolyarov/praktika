@@ -8,8 +8,6 @@ from gpiozero import DistanceSensor
 from time import sleep
 
 from RPi import GPIO
-import time
-import os
 #initialise a previous input variable to 0 (assume button not pressed last)
 prev_input = 0
 
