@@ -8,4 +8,4 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel_1, GPIO.IN)
 
 while True:
-    print(GPIO.input(channel)
+    print(GPIO.input(channel))
