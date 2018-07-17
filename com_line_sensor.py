@@ -5,7 +5,7 @@ import time
 channel_1 = 25
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel_1), GPIO.IN)
+GPIO.setup(channel_1, GPIO.IN)
 
 NUM_CYCLES = 10
 while True:
