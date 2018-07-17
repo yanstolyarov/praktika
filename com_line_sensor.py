@@ -9,17 +9,17 @@ def setup():
 
 def loop():
     while True:
-    if GPIO.input(IRTrackingPin) == GPIO.LOW:
+        if GPIO.input(IRTrackingPin) == GPIO.LOW:
 
-        print '14CORE | IR Tracking Test Code'
-        print '------------------------------'
-        print 'The sensor detects white color line'
+            print '14CORE | IR Tracking Test Code'
+            print '------------------------------'
+            print 'The sensor detects white color line'
 
-    else:
+        else:
 
-        print '14CORE | IR Tracking Test Code'
-        print '------------------------------'
-        print 'The sensor detects black color line'
+            print '14CORE | IR Tracking Test Code'
+            print '------------------------------'
+            print 'The sensor detects black color line'
 
 def destroy():
     GPIO.cleanup() # Release resource
