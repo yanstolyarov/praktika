@@ -8,6 +8,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel_1, GPIO.IN)
 print('test')
 NUM_CYCLES = 10
+impulse_count = 0
 while True:
     print('test1')
     start = time.time()
