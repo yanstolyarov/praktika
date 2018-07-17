@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 
-IRTrackingPin = 25
+IRTrackingPin = 16
 
 def setup():
     GPIO.setmode(GPIO.BOARD) # Set the GPIO pins as numbering
