@@ -1,16 +1,32 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import RPi.GPIO as GPIO
-import time
 
-channel_1 = 25
+IRTrackingPin = 25
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel_1, GPIO.IN)
+def setup():
+    GPIO.setmode(GPIO.BOARD) # Set the GPIO pins as numbering
+    GPIO.setup(IRTrackingPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-GPIO.add_event_detect(channel_1, GPIO.RISING)
+def loop():
+    while True:
+    if GPIO.input(IRTrackingPin) == GPIO.LOW:
 
-while True:
-    if GPIO.event_detected(channel_1):
-        print('bzz')
-    print('0')
-    time.sleep(0.0001)
+        print '14CORE | IR Tracking Test Code'
+        print '------------------------------'
+        print 'The sensor detects white color line'
+
+    else:
+
+        print '14CORE | IR Tracking Test Code'
+        print '------------------------------'
+        print 'The sensor detects black color line'
+
+def destroy():
+    GPIO.cleanup() # Release resource
+
+if __name__ == '__main__': # The Program will start from here
+    setup()
+    try:
+        loop()
+    except KeyboardInterrupt: # When control c is pressed child program destroy() will be executed.
+        destroy()
