@@ -25,5 +25,7 @@ ser = serial.Serial(
 while 1:
     ser.write('Write counter: %d \n'%(counter))
     x=ser.read(5)
-    print x
+    x=x.replace('R','1')
+    y =int(x)
+    print y
     counter += 1
