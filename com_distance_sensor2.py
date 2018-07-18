@@ -27,5 +27,6 @@ while 1:
     x=ser.read(5)
     x=x.replace('R','1')
     y =int(x)
-    print y
+    c=y-1008
+    print c*2.5+25
     counter += 1
