@@ -14,7 +14,7 @@ counter=0
 
 ser = serial.Serial(
 
-    port='/dev/ttyUSB0',
+    port='/dev/ttyUSB1',
     baudrate = 9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -24,7 +24,6 @@ ser = serial.Serial(
 
 while 1:
     ser.write('Write counter: %d \n'%(counter))
-    x=ser.read()
-    time.sleep(1)
+    x=ser.read(5)
     print x
     counter += 1
