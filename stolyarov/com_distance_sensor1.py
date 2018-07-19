@@ -23,9 +23,9 @@ def dm_1():
     x=ser.read(5)
     x=x.replace('R','1')
     y =int(x)
-    c=y-1008
-    d = c*2.5+25
-    return d
+    #c=y-1008
+    #d = c*2.5+25
+    return y
 
 while 1:
     print(dm_1())
