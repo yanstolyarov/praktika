@@ -42,3 +42,7 @@ def button2_status():
         a = 0
         return a
     prev2 = curr2
+
+    while 1:
+        print('button1', button1_status())
+        print('button2', button2_status())
