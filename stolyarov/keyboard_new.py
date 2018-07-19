@@ -24,14 +24,14 @@ button_delay = 0.3
 prev1 = 1
 prev2 = 1
 curr1 = 1
-curr2 = 2
+curr2 = 1
 
 
 def button1_status():
     global curr1
     global prev1
     curr1 = GPIO.input(17)
-    #print("b1",curr1)
+    print("b1",curr1)
     if ((prev1 == 0) and curr1 == 0):
         #print("Button1 pressed")
         return "true"
@@ -43,7 +43,7 @@ def button2_status():
     global curr2
     global prev2
     curr2 = GPIO.input(10)
-    #print("b2",curr2)
+    print("b2",curr2)
     if ((prev2 == 0) and curr2 == 0):
         #print("Button2 pressed")
         return "true"
