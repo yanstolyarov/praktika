@@ -31,24 +31,22 @@ def button1_status():
     global curr1
     global prev1
     curr1 = GPIO.input(17)
-    print("b1",curr1)
-    if ((prev1 == 0) and curr1 == 0):
-        #print("Button1 pressed")
-        return "true"
-    else:
-        return "false"
+    #print("b1",curr1)
+    if curr1 == 0:
+        return "True"
+    else
+        return "False"
     prev1 = curr1
 
 def button2_status():
     global curr2
     global prev2
     curr2 = GPIO.input(10)
-    print("b2",curr2)
-    if ((prev2 == 0) and curr2 == 0):
-        #print("Button2 pressed")
-        return "true"
-    else:
-        return "false"
+    #print("b2",curr2)
+    if curr2 == 0:
+        return "True"
+    else
+        return "False"
     prev2 = curr2
 
 
