@@ -3,7 +3,7 @@ import time
 import serial
 
 ser = serial.Serial(
-    port='/dev/dm2_side',
+    port='/dev/dm1_front',
     baudrate = 9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -27,4 +27,4 @@ def dm_2():
     return y
 
 while 1:
-    print(dm_2()) 
+    print(dm_2())
