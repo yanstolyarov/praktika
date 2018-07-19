@@ -60,14 +60,14 @@ def getch():
 
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
+    return chs
 
 
 while True:
     print('button1: ',button1_status())
     print('button2: ',button2_status())
-    print('dm1: ',DS1.dm_1())
-    print('dm2: ',DS2.dm_2())
+    print('dm1: ', DS1.dm_1())
+    print('dm2: ', DS2.dm_2())
 
     char = getch()
 

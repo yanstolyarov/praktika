@@ -24,4 +24,4 @@ def dm_2():
     y=int(x)
     #c=y-1006
     #f = c*2.5+20
-    return y#f
+    return y
