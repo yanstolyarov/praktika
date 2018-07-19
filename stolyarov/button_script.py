@@ -43,6 +43,6 @@ def button2_status():
         return a
     prev2 = curr2
 
-    while 1:
-        print('button1', button1_status())
-        print('button2', button2_status())
+while 1:
+    print('button1', button1_status())
+    print('button2', button2_status())
