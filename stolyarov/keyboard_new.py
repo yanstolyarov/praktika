@@ -21,14 +21,6 @@ power = 40
 button_delay = 0.3
 
 
-#initialise a previous input variable to 0 (assume button not pressed last)
-prev_input = 0
-
-#adjust for where your switch is connected
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17,GPIO.IN)
-GPIO.setup(10,GPIO.IN)
-
 prev1 = 1
 prev2 = 1
 curr1 = 1
@@ -56,11 +48,10 @@ def button2_status():
     #print("b2",curr2)
     if ((prev2 == 0) and curr2 == 0):
         #print("Button2 pressed")
-        a = 1
-        return a
+        return "true"
     else:
         a = 0
-        return a
+        return a "false"
     prev2 = curr2
 
 
