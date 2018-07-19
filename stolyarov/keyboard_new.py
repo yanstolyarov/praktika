@@ -51,7 +51,7 @@ def button2_status():
         return "true"
     else:
         a = 0
-        return a "false"
+        return "false"
     prev2 = curr2
 
 
