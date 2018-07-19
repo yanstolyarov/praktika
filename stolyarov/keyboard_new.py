@@ -42,8 +42,8 @@ def getch():
 while True:
     print('button1: ',BS.button1_status())
     print('button2: ',BS.button2_status())
-    print('dm1: ',DS1.dm1())
-    print('dm2: ',DS2.dm2())
+    print('dm1: ',DS1.dm_1())
+    print('dm2: ',DS2.dm_2())
 
     char = getch()
 
