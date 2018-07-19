@@ -19,12 +19,13 @@ counter=0
 #    print c*2.5+20
 
 def dm_1():
+    ser.write('Write counter: %d \n'%(counter))
     x=ser.read(5)
     x=x.replace('R','1')
-    y=int(x)
-    #c=y-1006
-    #f = c*2.5+20
-    return y
+    y =int(x)
+    #c=y-1008
+    #print c*2.5+25
+    #counter += 1
 
 while 1:
     print(dm_1())
