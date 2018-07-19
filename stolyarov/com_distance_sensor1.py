@@ -25,3 +25,6 @@ def dm_1():
     #c=y-1006
     #f = c*2.5+20
     return y
+
+while 1:
+    print(y)
