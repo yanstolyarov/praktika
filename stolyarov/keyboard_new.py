@@ -34,11 +34,9 @@ def button1_status():
     #print("b1",curr1)
     if ((prev1 == 0) and curr1 == 0):
         #print("Button1 pressed")
-        a = 1
-        return a
+        return "true"
     else:
-        a = 0
-        return a
+        return "false"
     prev1 = curr1
 
 def button2_status():
