@@ -26,6 +26,7 @@ def dm_1():
     #c=y-1008
     #print c*2.5+25
     #counter += 1
+    return y
 
 while 1:
     print(dm_1())

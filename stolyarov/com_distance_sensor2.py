@@ -26,5 +26,7 @@ def dm_2():
     #f = c*2.5+20
     return y
 
+
+
 while 1:
     print(dm_2())
