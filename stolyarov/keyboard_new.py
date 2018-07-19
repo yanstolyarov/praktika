@@ -34,7 +34,7 @@ def button1_status():
     #print("b1",curr1)
     if curr1 == 0:
         return "True"
-    else
+    else:
         return "False"
     prev1 = curr1
 
@@ -45,7 +45,7 @@ def button2_status():
     #print("b2",curr2)
     if curr2 == 0:
         return "True"
-    else
+    else:
         return "False"
     prev2 = curr2
 
