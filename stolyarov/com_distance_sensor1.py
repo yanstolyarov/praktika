@@ -3,7 +3,7 @@ import time
 import serial
 
 ser = serial.Serial(
-    port='/dev/dm2_side',
+    port='/dev/dm1_front',
     baudrate = 9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -18,7 +18,7 @@ counter=0
 #    c=y-1006
 #    print c*2.5+20
 
-def dm_2():
+def dm_1():
     x=ser.read(5)
     x=x.replace('R','1')
     y=int(x)
