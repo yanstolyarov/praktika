@@ -27,4 +27,4 @@ def dm_1():
     return y
 
 while 1:
-    print(y)
+    print(dm_1())
