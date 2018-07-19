@@ -19,9 +19,9 @@ def button1_status():
     global curr1
     global prev1
     curr1 = GPIO.input(17)
-    #print("b1",curr1)
+    print("b1",curr1)
     if ((prev1 == 0) and curr1 == 0):
-        #print("Button1 pressed")
+        print("Button1 pressed")
         a = 1
         return a
     else:
@@ -33,9 +33,9 @@ def button2_status():
     global curr2
     global prev2
     curr2 = GPIO.input(10)
-    #print("b2",curr2)
+    print("b2",curr2)
     if ((prev2 == 0) and curr2 == 0):
-        #print("Button2 pressed")
+        print("Button2 pressed")
         a = 1
         return a
     else:
@@ -44,5 +44,7 @@ def button2_status():
     prev2 = curr2
 
 while 1:
-    print('button1', button1_status())
-    print('button2', button2_status())
+    #print('button1', button1_status())
+    #print('button2', button2_status())
+    button1_status()
+    button2_status()
