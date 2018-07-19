@@ -25,7 +25,6 @@ def dm_1():
     y =int(x)
     c=y-1008
     d = c*2.5+25
-    counter += 1
     return d
 
 while 1:
