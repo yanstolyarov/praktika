@@ -48,7 +48,6 @@ def button2_status():
         #print("Button2 pressed")
         return "true"
     else:
-        a = 0
         return "false"
     prev2 = curr2
 
