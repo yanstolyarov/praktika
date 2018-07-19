@@ -12,16 +12,16 @@ GPIO.setup(10,GPIO.IN)
 prev1 = 1
 prev2 = 1
 curr1 = 1
-curr2 = 2
+curr2 = 1
 
 
 def button1_status():
     global curr1
     global prev1
     curr1 = GPIO.input(17)
-    print("b1",curr1)
+    #print("b1",curr1)
     if ((prev1 == 0) and curr1 == 0):
-        print("Button1 pressed")
+        #print("Button1 pressed")
         a = 1
         return a
     else:
