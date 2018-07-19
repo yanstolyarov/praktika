@@ -27,6 +27,15 @@ curr1 = 1
 curr2 = 1
 
 
+#side = right
+t_a = 0.2 #time of moving forward/backward to make 1 step
+t_b = 0.3 #time for turn on 90 degrees
+p_s = 90 #power for steps
+p_t = 60 #power for turns
+c_a = 25 #dalnomer critical value
+
+
+
 def button1_status():
     global curr1
     global prev1
@@ -68,6 +77,51 @@ while True:
     print('button2: ',button2_status())
     print('dm1: ', DS1.dm_1())
     print('dm2: ', DS2.dm_2())
+
+    but_f = button1_status()
+    dm_2 = DS.dm2()
+
+    if but_f == "False" and DS.dm_2() <= c_a:
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+
+    if but_f == "False" and DS.dm_2() > c_a:
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_1(p_t)
+        MD.motor_pwm_reverse_2(p_t)
+        sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+
+    if but_f == "True" and DS.dm_2() <= c_a:
+        MD.all_motor_pwm_reverse(p_s)
+        sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_2(p_t)
+        MD.motor_pwm_reverse_1(p_t)
+        sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+
+    if but_f == "True" and DS.dm_2() <= c_a:
+        MD.all_motor_pwm_reverse(p_s)
+        sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_1(p_t)
+        MD.motor_pwm_reverse_2(p_t)
+        sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+
 
     char = getch()
 
