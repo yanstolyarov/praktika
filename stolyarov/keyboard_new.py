@@ -5,8 +5,8 @@
 import sys, termios, tty, os, time
 import motor_driver_new as MD
 from time import sleep
-import com_distance_sensor_1 as DS1
-import com_distance_sensor_2 as DS2
+import com_distance_sensor1 as DS1
+import com_distance_sensor2 as DS2
 import button_script as BS
 
 from RPi import GPIO
