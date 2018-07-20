@@ -3,7 +3,7 @@ import time
 import serial
 
 ser = serial.Serial(
-    port='/dev/ttyUSB1',
+    port='/dev/dm1_front',
     baudrate = 9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -19,9 +19,10 @@ counter=0
 #    print c*2.5+20
 
 def dm_1():
+    ser.write('Write counter: %d \n'%(counter))
     x=ser.read(5)
-    x=x.replace('R','1')
-    y=int(x)
-    c=y-1006
-    f = c*2.5+20
-    return f
+    #x=x.replace('R','1')
+    y =int(x[1:4])
+    c=y-1008
+    d = c*2.5+25
+    return y
