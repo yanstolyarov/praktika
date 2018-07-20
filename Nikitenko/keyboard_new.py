@@ -62,6 +62,7 @@ def getch():
 while True:
     but_1 = button1_status()
     but_2 = button2_status()
+    print(but_1,but_2)
     if but_1==0 and but_2==0:
         MD.motor_pwm_forw_1(p1)
         MD.motor_pwm_forw_2(p2)
