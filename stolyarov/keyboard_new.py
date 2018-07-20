@@ -6,10 +6,9 @@ import sys, termios, tty, os, time
 import motor_driver_new as MD
 import com_distance_sensor1 as DS1
 import com_distance_sensor2 as DS2
-
 from RPi import GPIO
 #initialise a previous input variable to 0 (assume button not pressed last)
-prev_input = 0
+#prev_input = 0
 
 #adjust for where your switch is connected
 GPIO.setmode(GPIO.BCM)
@@ -20,13 +19,6 @@ sleep = 0.1
 power = 40
 button_delay = 0.3
 
-
-prev1 = 1
-prev2 = 1
-curr1 = 1
-curr2 = 1
-
-
 #side = right
 t_a = 0.2 #time of moving forward/backward to make 1 step
 t_b = 0.3 #time for turn on 90 degrees
@@ -34,31 +26,21 @@ p_s = 90 #power for steps
 p_t = 60 #power for turns
 c_a = 25 #dalnomer critical value
 
-
-
 def button1_status():
-    global curr1
-    global prev1
     curr1 = GPIO.input(17)
     #print("b1",curr1)
     if curr1 == 0:
         return "True"
     else:
         return "False"
-    prev1 = curr1
 
 def button2_status():
-    global curr2
-    global prev2
     curr2 = GPIO.input(10)
     #print("b2",curr2)
     if curr2 == 0:
         return "True"
     else:
         return "False"
-    prev2 = curr2
-
-
 
 def getch():
     fd = sys.stdin.fileno()
@@ -73,13 +55,14 @@ def getch():
 
 
 while True:
+    but_f = button1_status()
+    dm_2 = DS.dm2()
     print('button1: ',button1_status())
     print('button2: ',button2_status())
     print('dm1: ', DS1.dm_1())
     print('dm2: ', DS2.dm_2())
+    time.sleep()
 
-    but_f = button1_status()
-    dm_2 = DS.dm2()
 
 #    if but_f == "False" and DS.dm_2() <= c_a:
 #        MD.all_motor_pwm_forward(p_s)
@@ -125,9 +108,9 @@ while True:
 
     char = getch()
 
-
     if (char == "p"):
         print("Stop!")
+        MD.stop()
         exit(0)
 
     elif (char == "a"):
