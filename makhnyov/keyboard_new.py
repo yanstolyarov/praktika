@@ -26,21 +26,6 @@ p_s = 90 #power for steps
 p_t = 60 #power for turns
 c_a = 25 #dalnomer critical value
 
-def button1_status():
-    curr1 = GPIO.input(17)
-    #print("b1",curr1)
-    if curr1 == 0:
-        return "True"
-    else:
-        return "False"
-
-def button2_status():
-    curr2 = GPIO.input(10)
-    #print("b2",curr2)
-    if curr2 == 0:
-        return "True"
-    else:
-        return "False"
 
 def getch():
     fd = sys.stdin.fileno()
@@ -55,55 +40,35 @@ def getch():
 
 
 while True:
-    but_f = button1_status()
-    dm_2 = DS2.dm_2()
-    print('button1: ',button1_status())
-    print('button2: ',button2_status())
+
     print('dm1: ', DS1.dm_1())
     print('dm2: ', DS2.dm_2())
     time.sleep(0.01)
 
 
-    if but_f == "False" and DS.dm_2() <= c_a:
-        MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
-        MD.stop()
+    MD.all_motor_pwm_forward(50)
 
-    if but_f == "False" and DS.dm_2() > c_a:
-        MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
-        MD.stop()
-        MD.motor_pwm_forw_1(p_t)
-        MD.motor_pwm_reverse_2(p_t)
-        sleep(t_b)
-        MD.stop()
-        MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
-        MD.stop()
+    dalnomer1 = DS1.dm1()
+    dalnomer2 = DS2.dm2()
 
-    if but_f == "True" and DS.dm_2() <= c_a:
-        MD.all_motor_pwm_reverse(p_s)
-        sleep(t_a)
-        MD.stop()
-        MD.motor_pwm_forw_2(p_t)
-        MD.motor_pwm_reverse_1(p_t)
-        sleep(t_b)
-        MD.stop()
-        MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
-        MD.stop()
+    if dalnomer1 < 25:
+        if dalnomer2 > 25:
+            time.sleep(3)
+            MD.stop()
+        MD.motor_pwm_forw_1(50)
+        MD.motor_pwm_reverse_2(0)
 
-    if but_f == "True" and DS.dm_2() <= c_a:
-        MD.all_motor_pwm_reverse(p_s)
-        sleep(t_a)
-        MD.stop()
-        MD.motor_pwm_forw_1(p_t)
-        MD.motor_pwm_reverse_2(p_t)
-        sleep(t_b)
-        MD.stop()
-        MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
-        MD.stop()
+        elif dalnomer2 < 25
+            time.sleep(3)
+            MD.stop()
+        MD.motor_pwm_forw_2(50)
+        MD.motor_pwm_reverse_1(0)
+    else
+        if dalnomer2 > 25:
+            time.sleep(3)
+            MD.stop()
+        MD.motor_pwm_forw_1(50)
+        MD.motor_pwm_reverse_2(0)
 
 
     char = getch()
