@@ -67,11 +67,15 @@ while True:
         MD.motor_pwm_forw_1(p1)
         MD.motor_pwm_forw_2(p2)
         time.sleep(1)
+        print('1if')
+    print('11if')
     if but_1==0 and but_2==1:
         MD.motor_pwm_forw_1(30)
         MD.motor_pwm_forw_2(0)
         time.sleep(1)
         MD.stop()
+        print('2if')
+    print('22if')    
     if but_1==1 and but_2==0:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
