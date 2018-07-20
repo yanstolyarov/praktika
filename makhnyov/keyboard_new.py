@@ -51,59 +51,59 @@ def getch():
 
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return chs
+    return ch
 
 
 while True:
     but_f = button1_status()
-    dm_2 = DS.dm2()
+    dm_2 = DS2.dm_2()
     print('button1: ',button1_status())
     print('button2: ',button2_status())
     print('dm1: ', DS1.dm_1())
     print('dm2: ', DS2.dm_2())
-    time.sleep()
+    time.sleep(0.01)
 
 
-#    if but_f == "False" and DS.dm_2() <= c_a:
-#        MD.all_motor_pwm_forward(p_s)
-#        sleep(t_a)
-#        MD.stop()
+    if but_f == "False" and DS.dm_2() <= c_a:
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
 
-#    if but_f == "False" and DS.dm_2() > c_a:
-#        MD.all_motor_pwm_forward(p_s)
-#        sleep(t_a)
-#        MD.stop()
-#        MD.motor_pwm_forw_1(p_t)
-#        MD.motor_pwm_reverse_2(p_t)
-#        sleep(t_b)
-#        MD.stop()
-#        MD.all_motor_pwm_forward(p_s)
-#        sleep(t_a)
-#        MD.stop()
-#
-    #if but_f == "True" and DS.dm_2() <= c_a:
-    #    MD.all_motor_pwm_reverse(p_s)
-    #    sleep(t_a)
-    #    MD.stop()
-    #    MD.motor_pwm_forw_2(p_t)
-    #    MD.motor_pwm_reverse_1(p_t)
-    #    sleep(t_b)
-    #    MD.stop()
-    #    MD.all_motor_pwm_forward(p_s)
-    #    sleep(t_a)
-    #    MD.stop()
+    if but_f == "False" and DS.dm_2() > c_a:
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_1(p_t)
+        MD.motor_pwm_reverse_2(p_t)
+        sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
 
-    #if but_f == "True" and DS.dm_2() <= c_a:
-    #    MD.all_motor_pwm_reverse(p_s)
-    #    sleep(t_a)
-    #    MD.stop()
-    #    MD.motor_pwm_forw_1(p_t)
-    #    MD.motor_pwm_reverse_2(p_t)
-    #    sleep(t_b)
-    #    MD.stop()
-    #    MD.all_motor_pwm_forward(p_s)
-    #    sleep(t_a)
-    #    MD.stop()
+    if but_f == "True" and DS.dm_2() <= c_a:
+        MD.all_motor_pwm_reverse(p_s)
+        sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_2(p_t)
+        MD.motor_pwm_reverse_1(p_t)
+        sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
+
+    if but_f == "True" and DS.dm_2() <= c_a:
+        MD.all_motor_pwm_reverse(p_s)
+        sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_1(p_t)
+        MD.motor_pwm_reverse_2(p_t)
+        sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        sleep(t_a)
+        MD.stop()
 
 
     char = getch()
