@@ -21,7 +21,7 @@ counter=0
 def dm_1():
     ser.write('Write counter: %d \n'%(counter))
     x=ser.read(5)
-    x=x.replace('R','1')
+    #x=x.replace('R','1')
     y =int(x[1:4])
     #c=y-1008
     #d = c*2.5+25
