@@ -53,10 +53,10 @@ def getch():
     try:
         tty.setraw(sys.stdin.fileno())
         ch = sys.stdin.read(1)
-
+        return ch
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
+
 
 
 while True:
@@ -76,7 +76,7 @@ while True:
         time.sleep(1)
         MD.stop()
         print('2if')
-    print('22if')    
+    print('22if')
     if but_1==1 and but_2==0:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
@@ -86,8 +86,8 @@ while True:
         MD.motor_pwm_forw_2(p5)
         time.sleep(1)
         MD.stop()
-        print('3if') 
-    print('33if') 
+        print('3if')
+    print('33if')
     if but_1==1 and but_2==1:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
@@ -97,8 +97,8 @@ while True:
         MD.motor_pwm_forw_2(p8)
         time.sleep(1)
         MD.stop()
-        print('4if') 
-    print('44if') 
+        print('4if')
+    print('44if')
 
     char = getch()
 
