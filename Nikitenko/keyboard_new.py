@@ -138,5 +138,5 @@ while True:
         time.sleep(button_delay)
     elif (char == " "):
         print('spacebar')
-    else:
-        print(char)
+    #else:
+        #print(char)
