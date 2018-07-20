@@ -4,7 +4,7 @@
 
 import sys, termios, tty, os, time
 import motor_driver_new as MD
-from time import sleep
+import time
 from RPi import GPIO
 #initialise a previous input variable to 0 (assume button not pressed last)
 #prev_input = 0
@@ -21,11 +21,10 @@ p5=90 #on the right engine to turn left
 p6=50 #way ahead for both engine
 p7=70 #on the left engine for turn right
 p8=60 #on the left engine for turn right
-but_1 = BS.button1_status()
-but_2 = BS.button2_status()
+button_delay = 0.3
+
 sleep = 0.1
 power = 40
-button_delay = 0.3
 
 
 def button1_status():
@@ -44,6 +43,10 @@ def button2_status():
     else:
         return 0
 
+but_1 = button1_status()
+but_2 = button2_status()
+
+
 def getch():
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
@@ -57,39 +60,39 @@ def getch():
 
 
 while True:
-    but_1 = BS.button1_status()
-    but_2 = BS.button2_status()
-    if but_1==0 and but_2==0
-        while but_2 != 1
-            but_2 = BS.button2_status()
+    but_1 = button1_status()
+    but_2 = button2_status()
+    if but_1==0 and but_2==0:
+        while but_2 != 1:
+            but_2 = button2_status()
             MD.motor_pwm_forw_1(p1)
             MD.motor_pwm_forw_2(p2)
-            sleep(1)
+            time.sleep(1)
             MD.stop()
-    if but_1==0 and but_2==1
-        while but_1 != 1
-            but_1 = BS.button1_status()
+    if but_1==0 and but_2==1:
+        while but_1 != 1:
+            but_1 = button1_status()
             MD.motor_pwm_forw_1(p6+5)
             MD.motor_pwm_forw_2(p6)
-            sleep(1)
+            time.sleep(1)
             MD.stop()
-    if but_1==1 and but_2=0
+    if but_1==1 and but_2==0:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
-        sleep(1)
+        time.sleep(1)
         MD.stop()
         MD.motor_pwm_forw_1(p4)
         MD.motor_pwm_forw_2(p5)
-        sleep(1)
+        time.sleep(1)
         MD.stop()
-    if but_1==1 and but_2=1
+    if but_1==1 and but_2==1:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
-        sleep(1)
+        time.sleep(1)
         MD.stop()         
         MD.motor_pwm_forw_1(p7)
         MD.motor_pwm_forw_2(p8)
-        sleep(1)
+        time.sleep(1)
         MD.stop()
 
 
@@ -104,31 +107,31 @@ while True:
         print("Left pressed")
         MD.motor_pwm_forw_2(power)
         MD.motor_pwm_reverse_1(power)
-        sleep(button_delay)
+        time.sleep(button_delay)
         MD.stop()
 
     elif (char == "d"):
         print("Right pressed")
         MD.motor_pwm_forw_1(power)
         MD.motor_pwm_reverse_2(power)
-        sleep(button_delay)
+        time.sleep(button_delay)
         MD.stop()
 
     elif (char == "w"):
         print("Up pressed")
         MD.all_motor_pwm_forward(power)
-        sleep(button_delay)
+        time.sleep(button_delay)
         MD.stop()
 
     elif (char == "s"):
         print("Down pressed")
         MD.all_motor_pwm_reverse(power)
-        sleep(button_delay)
+        time.sleep(button_delay)
         MD.stop()
 
     elif (char == "1"):
         print("Number 1 pressed")
-        sleep(button_delay)
+        time.sleep(button_delay)
     elif (char == " "):
         print('spacebar')
     else:
