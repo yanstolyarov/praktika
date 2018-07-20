@@ -66,43 +66,43 @@ while True:
 
     if but_f == "False" and DS2.dm_2() <= c_a:
         MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
 
     if but_f == "False" and DS2.dm_2() > c_a:
         MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
         MD.motor_pwm_forw_1(p_t)
         MD.motor_pwm_reverse_2(p_t)
-        sleep(t_b)
+        time.sleep(t_b)
         MD.stop()
         MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
 
     if but_f == "True" and DS2.dm_2() <= c_a:
         MD.all_motor_pwm_reverse(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
         MD.motor_pwm_forw_2(p_t)
         MD.motor_pwm_reverse_1(p_t)
-        sleep(t_b)
+        time.sleep(t_b)
         MD.stop()
         MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
 
     if but_f == "True" and DS2.dm_2() <= c_a:
         MD.all_motor_pwm_reverse(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
         MD.motor_pwm_forw_1(p_t)
         MD.motor_pwm_reverse_2(p_t)
-        sleep(t_b)
+        time.sleep(t_b)
         MD.stop()
         MD.all_motor_pwm_forward(p_s)
-        sleep(t_a)
+        time.sleep(t_a)
         MD.stop()
 
 
