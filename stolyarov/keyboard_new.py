@@ -64,12 +64,12 @@ while True:
     time.sleep(0.01)
 
 
-    if but_f == "False" and DS.dm_2() <= c_a:
+    if but_f == "False" and DS2.dm_2() <= c_a:
         MD.all_motor_pwm_forward(p_s)
         sleep(t_a)
         MD.stop()
 
-    if but_f == "False" and DS.dm_2() > c_a:
+    if but_f == "False" and DS2.dm_2() > c_a:
         MD.all_motor_pwm_forward(p_s)
         sleep(t_a)
         MD.stop()
@@ -81,7 +81,7 @@ while True:
         sleep(t_a)
         MD.stop()
 
-    if but_f == "True" and DS.dm_2() <= c_a:
+    if but_f == "True" and DS2.dm_2() <= c_a:
         MD.all_motor_pwm_reverse(p_s)
         sleep(t_a)
         MD.stop()
@@ -93,7 +93,7 @@ while True:
         sleep(t_a)
         MD.stop()
 
-    if but_f == "True" and DS.dm_2() <= c_a:
+    if but_f == "True" and DS2.dm_2() <= c_a:
         MD.all_motor_pwm_reverse(p_s)
         sleep(t_a)
         MD.stop()
