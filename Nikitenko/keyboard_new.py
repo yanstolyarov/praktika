@@ -63,15 +63,10 @@ while True:
     but_1 = button1_status()
     but_2 = button2_status()
     if but_1==0 and but_2==0:
-        while but_2 != 1:
-            but_2 = button2_status()
             MD.motor_pwm_forw_1(p1)
             MD.motor_pwm_forw_2(p2)
             time.sleep(1)
-            MD.stop()
     if but_1==0 and but_2==1:
-        while but_1 != 1:
-            but_1 = button1_status()
             MD.motor_pwm_forw_1(p6+5)
             MD.motor_pwm_forw_2(p6)
             time.sleep(1)
