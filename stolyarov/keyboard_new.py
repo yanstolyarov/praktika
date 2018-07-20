@@ -22,8 +22,8 @@ button_delay = 0.3
 #side = right
 t_a = 0.2 #time of moving forward/backward to make 1 step
 t_b = 0.3 #time for turn on 90 degrees
-p_s = 90 #power for steps
-p_t = 60 #power for turns
+p_s = 50 #power for steps
+p_t = 40 #power for turns
 c_a = 25 #dalnomer critical value
 
 def button1_status():
