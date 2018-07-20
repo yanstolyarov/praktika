@@ -67,8 +67,8 @@ while True:
         MD.motor_pwm_forw_2(p2)
         time.sleep(1)
     if but_1==0 and but_2==1:
-        MD.motor_pwm_forw_1(p6+30)
-        MD.motor_pwm_forw_2(p6)
+        MD.motor_pwm_forw_1(30)
+        MD.motor_pwm_forw_2(0)
         time.sleep(1)
         MD.stop()
     if but_1==1 and but_2==0:
