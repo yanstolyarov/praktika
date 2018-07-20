@@ -63,14 +63,14 @@ while True:
     but_1 = button1_status()
     but_2 = button2_status()
     if but_1==0 and but_2==0:
-            MD.motor_pwm_forw_1(p1)
-            MD.motor_pwm_forw_2(p2)
-            time.sleep(1)
+        MD.motor_pwm_forw_1(p1)
+        MD.motor_pwm_forw_2(p2)
+        time.sleep(1)
     if but_1==0 and but_2==1:
-            MD.motor_pwm_forw_1(p6+30)
-            MD.motor_pwm_forw_2(p6)
-            time.sleep(1)
-            MD.stop()
+        MD.motor_pwm_forw_1(p6+30)
+        MD.motor_pwm_forw_2(p6)
+        time.sleep(1)
+        MD.stop()
     if but_1==1 and but_2==0:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
