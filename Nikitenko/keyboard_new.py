@@ -14,13 +14,13 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
 GPIO.setup(10,GPIO.IN)
 p1= 30 #on the left engine to offset
-p2=40  #on the right engine to offset
-p3 = 90 #way back for both engine 
-p4=70 #on the left engine to turn left
+p2=70  #on the right engine to offset
+p3 = 90 #way back for both engine
+p4=50 #on the left engine to turn left
 p5=90 #on the right engine to turn left
 p6=50 #way ahead for both engine
 p7=70 #on the left engine for turn right
-p8=60 #on the left engine for turn right
+p8=20 #on the left engine for turn right
 button_delay = 0.3
 
 sleep = 0.1
@@ -67,7 +67,7 @@ while True:
             MD.motor_pwm_forw_2(p2)
             time.sleep(1)
     if but_1==0 and but_2==1:
-            MD.motor_pwm_forw_1(p6+5)
+            MD.motor_pwm_forw_1(p6+30)
             MD.motor_pwm_forw_2(p6)
             time.sleep(1)
             MD.stop()
@@ -84,7 +84,7 @@ while True:
         MD.motor_pwm_reverse_1(p3)
         MD.motor_pwm_reverse_2(p3)
         time.sleep(1)
-        MD.stop()         
+        MD.stop()
         MD.motor_pwm_forw_1(p7)
         MD.motor_pwm_forw_2(p8)
         time.sleep(1)
