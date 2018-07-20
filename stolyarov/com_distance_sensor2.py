@@ -20,7 +20,7 @@ counter=0
 
 def dm_2():
     x=ser.read(5)
-    x=x.replace('R','1')
+    #x=x.replace('R','1')
     y =int(x[1:4])
     #c=y-1006
     #f = c*2.5+20
