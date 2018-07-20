@@ -10,22 +10,6 @@ ser = serial.Serial(
     bytesize=serial.EIGHTBITS,
     timeout=1
     )
-counter=0
-#while 1:
-#    x=ser.read(5)
-#    x=x.replace('R','1')
-#    y=int(x)
-#    c=y-1006
-#    print c*2.5+20
-
-#def test():
-    #ser.write('Write counter: %d \n'%(counter))
-    #x=ser.read(5)
-    #x=x.replace('R','1')
-    #y =int(x[1:4])
-    #c=y-1008
-    #d = c*2.5+25
-
 
 while 1:
     x = ser.read(17)
@@ -34,7 +18,7 @@ while 1:
     x2 = x[8:12]
     x3 = x[13:18]
     print(x)
-    print(x1)
-    print(x2)
-    print(x3)
+    #print(x1)
+    #print(x2)
+    #print(x3)
     time.sleep(1)
