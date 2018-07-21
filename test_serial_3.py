@@ -18,4 +18,4 @@ while 1:
     print(int(x1))
     print(int(x2))
     print(int(x3))
-    time.sleep(1)
+    time.sleep(0.1)
