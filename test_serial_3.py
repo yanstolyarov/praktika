@@ -11,9 +11,10 @@ ser = serial.Serial(SERIAL_PORT, SERIAL_RATE)
 while 1:
     x = ser.read(17)
     x = x.replace(' ','0')
-    x1 = x[3:7]
-    x2 = x[8:12]
+    x1 = x[3:6]
+    x2 = x[8:11]
     x3 = x[13:18]
+    print(x)
     print(int(x1))
     print(int(x2))
     print(int(x3))
