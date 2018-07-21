@@ -4,6 +4,7 @@
 
 import sys, termios, tty, os, time
 import motor_driver_new as MD
+import com_distance_sensor1 as DS1
 import time
 from RPi import GPIO
 #initialise a previous input variable to 0 (assume button not pressed last)
@@ -13,14 +14,15 @@ from RPi import GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
 GPIO.setup(10,GPIO.IN)
-p1= 30 #on the left engine to offset
-p2=70  #on the right engine to offset
-p3 = 90 #way back for both engine
-p4=50 #on the left engine to turn left
-p5=90 #on the right engine to turn left
-p6=50 #way ahead for both engine
-p7=70 #on the left engine for turn right
-p8=20 #on the left engine for turn right
+l = 15
+p1= 30 #for both engines to move forward
+p2=70  #fot both engines to move back
+p3 = 90 # for right engine to turn +90
+p4=50 #on the left engine to turn +90
+p5=90 #on the right engine to turn -90
+p6=50 #on the left engine to turn -90
+p7=70 #on the right engine for turn +180
+p8=20 #on the left engine for turn +180
 button_delay = 0.3
 
 sleep = 0.1
@@ -44,49 +46,40 @@ def button2_status():
         return 0
 
 but_1 = button1_status()
-but_2 = button2_status()
-
-
-
-
 
 while True:
-    but_1 = button1_status()
-    but_2 = button2_status()
-    print(but_1,but_2)
-    if but_1==0 and but_2==0:
-        MD.motor_pwm_forw_1(p1)
-        MD.motor_pwm_forw_2(p2)
-        time.sleep(1)
-        MD.stop()
-        print('1if')
-    print('11if')
-    if but_1==0 and but_2==1:
-        MD.motor_pwm_forw_1(p6+30)
-        MD.motor_pwm_forw_2(p6)
-        time.sleep(1)
-        MD.stop()
-        print('2if')
-    print('22if')
-    if but_1==1 and but_2==0:
-        MD.motor_pwm_reverse_1(p3)
-        MD.motor_pwm_reverse_2(p3)
-        time.sleep(1)
-        MD.stop()
-        MD.motor_pwm_forw_1(p4)
-        MD.motor_pwm_forw_2(p5)
-        time.sleep(1)
-        MD.stop()
-        print('3if')
-    print('33if')
-    if but_1==1 and but_2==1:
-        MD.motor_pwm_reverse_1(p3)
-        MD.motor_pwm_reverse_2(p3)
-        time.sleep(1)
-        MD.stop()
-        MD.motor_pwm_forw_1(p7)
-        MD.motor_pwm_forw_2(p8)
-        time.sleep(1)
-        MD.stop()
-        print('4if')
-    print('44if')
+     MD.all_motor_pwm_forward(p1)
+     time.sleep(1)
+     MD.stop()
+     but_1 = button1_status()
+     dm_1 = DS1.dm_1()
+     if but_1 ==1:
+         MD.all_motor_pwm_reverse(p2)
+         MD.motor_pwm_forw_1(p4)
+         MD.motor_pwm_forw_2(p3)
+         time.sleep(1)
+         MD.stop()
+         dm_1 = DS1.dm_1()
+         if DS1.dm_1() < l:        
+         MD.motor_pwm_forw_1(p8)
+         MD.motor_pwm_forw_2(p7) 
+         time.sleep(1)
+         MD.stop() 
+         dm_1 = DS1.dm_1()
+             if DS1.dm_1() < l:
+                 MD.motor_pwm_forw_1(p6)
+                 MD.motor_pwm_forw_2(p5) 
+                 time.sleep(1)
+                 MD.stop()       
+     else:
+         MD.motor_pwm_forw_1(p4)
+         MD.motor_pwm_forw_2(p3)
+         time.sleep(1)
+         MD.stop()
+         dm_1 = DS1.dm_1()
+         if DS1.dm_1() < l:
+             MD.motor_pwm_forw_1(p6)
+             MD.motor_pwm_forw_2(p5) 
+             time.sleep(1)
+             MD.stop() 
+   
