@@ -11,7 +11,7 @@ while 1:
     print('dalnomer1', dalnomer1)
     print('dalnomer2', dalnomer2)
 
-    if dalnomer1 < 10:
+    if dalnomer1 < 20:
         MD.stop()
         time.sleep(2)
         if dalnomer2 > 25:
