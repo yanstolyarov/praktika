@@ -8,7 +8,7 @@ import termios
 import atexit
 from RPi import GPIO
 import motor_driver as MD
-import serial as S
+import serial1 as S
 
 #запрос состояния первого дальномера: S.dm_1()
 #запрос состояния второго дальномера: S.dm_2()
