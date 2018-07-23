@@ -14,7 +14,10 @@ while 1:
     x1 = x[3:6]
     x2 = x[8:11]
     x3 = x[13:18]
+    print('---------------')
     print(x)
+    millis = int(round(time.time() * 1000))
+    print('time', millis)
     print(int(x1))
     print(int(x2))
     print(int(x3))

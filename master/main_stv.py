@@ -8,12 +8,8 @@ import termios
 import atexit
 from RPi import GPIO
 import motor_driver as MD
-import serial as S
+import serial1 as S
 
-#запрос состояния первого дальномера: S.dm_1()
-#запрос состояния второго дальномера: S.dm_2()
-#запрос показаний датчика линий: s.dlin()
-#управление двигателями
 #MD.motor_pwm_forw_1(x)
 #MD.motor_pwm_forw_2(x)
 #MD.motor_pwm_reverse_1(x)
@@ -24,8 +20,8 @@ import serial as S
 #1 - left, 2 - right, x - power(0-100)
 
 #side = right
-t_a = 0.2 #time of moving forward/backward to make 1 step
-t_b = 0.7 #time for turn on 90 degrees
+t_a = 4 #time of moving forward/backward to make 1 step
+t_b = 4 #time for turn on 90 degrees
 p_s = 50 #power for steps
 p_t = 40 #power for turns
 c_a = 11 #dalnomer critical value
@@ -94,7 +90,6 @@ while True:
         print ('left')
     if key == chr(32):
         print ('stop')
-#начало алгоритма
     if but_f == 0 and dm_2 <= c_a:
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_a)
@@ -102,18 +97,6 @@ while True:
 
     if but_f == 0 and dm_2 > c_a:
         MD.all_motor_pwm_forward(p_s)
-        time.sleep(t_a)
-        MD.stop()
-        MD.motor_pwm_forw_1(p_t)
-        MD.motor_pwm_reverse_2(p_t)
-        time.sleep(t_b)
-        MD.stop()
-        MD.all_motor_pwm_forward(p_s)
-        time.sleep(t_a)
-        MD.stop()
-
-    if but_f == 1 and dm_2 <= c_a:
-        MD.all_motor_pwm_reverse(p_s)
         time.sleep(t_a)
         MD.stop()
         MD.motor_pwm_forw_2(p_t)
@@ -135,5 +118,16 @@ while True:
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_a)
         MD.stop()
-#конец
+
+    if but_f == 1 and dm_2 <= c_a:
+        MD.all_motor_pwm_reverse(p_s)
+        time.sleep(t_a)
+        MD.stop()
+        MD.motor_pwm_forw_1(p_t)
+        MD.motor_pwm_reverse_2(p_t)
+        time.sleep(t_b)
+        MD.stop()
+        MD.all_motor_pwm_forward(p_s)
+        time.sleep(t_a)
+        MD.stop()
     time.sleep(0.2)

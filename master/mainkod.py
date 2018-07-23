@@ -1,13 +1,12 @@
 import motor_driver_new as MD
 import time
-import com_distance_sensor1 as DS1
-import com_distance_sensor2 as DS2
+import serial1 as S
 
 while 1:
     MD.all_motor_pwm_forward(50)
     time.sleep(0.25)
-    dalnomer1 = DS1.dm_1()
-    dalnomer2 = DS2.dm_2()
+    dalnomer1 = S.dm_1()
+    dalnomer2 = S.dm_2()
     print('dalnomer1', dalnomer1)
     print('dalnomer2', dalnomer2)
 
