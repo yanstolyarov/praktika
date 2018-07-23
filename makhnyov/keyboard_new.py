@@ -16,7 +16,7 @@ GPIO.setup(17,GPIO.IN)
 GPIO.setup(10,GPIO.IN)
 
 sleep = 0.1
-power = 40
+power = 20
 button_delay = 0.3
 
 #side = right
@@ -48,8 +48,8 @@ while True:
 
     MD.all_motor_pwm_forward(50)
 
-    dalnomer1 = DS1.dm1()
-    dalnomer2 = DS2.dm2()
+    dalnomer1 = DS1.dm_1()
+    dalnomer2 = DS2.dm_2()
 
     if dalnomer1 < 25:
         if dalnomer2 > 25:
@@ -58,12 +58,12 @@ while True:
         MD.motor_pwm_forw_1(50)
         MD.motor_pwm_reverse_2(0)
 
-        elif dalnomer2 < 25
+        if dalnomer2 < 25:
             time.sleep(3)
             MD.stop()
         MD.motor_pwm_forw_2(50)
         MD.motor_pwm_reverse_1(0)
-    else
+    else:
         if dalnomer2 > 25:
             time.sleep(3)
             MD.stop()
@@ -78,21 +78,21 @@ while True:
         MD.stop()
         exit(0)
 
-    elif (char == "a"):
+    if (char == "a"):
         print("Left pressed")
         MD.motor_pwm_forw_2(power)
         MD.motor_pwm_reverse_1(power)
         time.sleep(button_delay)
         MD.stop()
 
-    elif (char == "d"):
+    if (char == "d"):
         print("Right pressed")
         MD.motor_pwm_forw_1(power)
         MD.motor_pwm_reverse_2(power)
         time.sleep(button_delay)
         MD.stop()
 
-    elif (char == "w"):
+    if (char == "w"):
         print("Up pressed")
         MD.all_motor_pwm_forward(power)
         time.sleep(button_delay)
@@ -104,10 +104,10 @@ while True:
         time.sleep(button_delay)
         MD.stop()
 
-    elif (char == "1"):
+    if (char == "1"):
         print("Number 1 pressed")
         time.sleep(button_delay)
-    elif (char == " "):
+    if (char == " "):
         print('spacebar')
     else:
         print(char)
