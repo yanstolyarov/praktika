@@ -27,46 +27,42 @@ p_w2 = GPIO.PWM(enb,100)
 p_w1.start(0)
 p_w2.start(0)
 
-def motor_pwm_forw_1(x):
+def motor_1(x):
     p_w1.ChangeDutyCycle(x)
-    GPIO.output(e1, GPIO.HIGH)
-    GPIO.output(m1, GPIO.LOW)
+    if x >= 0:
+        GPIO.output(m1, GPIO.LOW)
+        GPIO.output(e1, GPIO.HIGH)
+    else:
+        GPIO.output(m1, GPIO.HIGH)
+        GPIO.output(e1, GPIO.LOW)
 
-def motor_pwm_forw_2(x):
+def motor_2(x):
     p_w2.ChangeDutyCycle(x)
-    GPIO.output(e2, GPIO.HIGH)
-    GPIO.output(m2, GPIO.LOW)
+    if x >= 0:
+        GPIO.output(m2, GPIO.LOW)
+        GPIO.output(e2, GPIO.HIGH)
+    else:
+        GPIO.output(m2, GPIO.HIGH)
+        GPIO.output(e2, GPIO.LOW)
 
-def motor_pwm_reverse_1(x):
+def all_motor(x):
     p_w1.ChangeDutyCycle(x)
-    GPIO.output(m1, GPIO.HIGH)
-    GPIO.output(e1, GPIO.LOW)
-
-def motor_pwm_reverse_2(x):
     p_w2.ChangeDutyCycle(x)
-    GPIO.output(m2, GPIO.HIGH)
-    GPIO.output(e2, GPIO.LOW)
-
-def all_motor_pwm_forward(x):
-    p_w1.ChangeDutyCycle(x)
-    GPIO.output(m1, GPIO.LOW)
-    GPIO.output(e1, GPIO.HIGH)
-    p_w2.ChangeDutyCycle(x)
-    GPIO.output(m2, GPIO.LOW)
-    GPIO.output(e2, GPIO.HIGH)
-
-def all_motor_pwm_reverse(x):
-    p_w1.ChangeDutyCycle(x)
-    GPIO.output(m1, GPIO.HIGH)
-    GPIO.output(e1, GPIO.LOW)
-    p_w2.ChangeDutyCycle(x)
-    GPIO.output(m2, GPIO.HIGH)
-    GPIO.output(e2, GPIO.LOW)
+    if x >= 0:
+        GPIO.output(m1, GPIO.LOW)
+        GPIO.output(e1, GPIO.HIGH)
+        GPIO.output(m2, GPIO.LOW)
+        GPIO.output(e2, GPIO.HIGH)
+    else:
+        GPIO.output(m1, GPIO.HIGH)
+        GPIO.output(e1, GPIO.LOW)
+        GPIO.output(m2, GPIO.HIGH)
+        GPIO.output(e2, GPIO.LOW)
 
 def stop():
     p_w1.ChangeDutyCycle(0)
+    p_w2.ChangeDutyCycle(0)
     GPIO.output(m1, GPIO.LOW)
     GPIO.output(e1, GPIO.HIGH)
-    p_w2.ChangeDutyCycle(0)
     GPIO.output(m2, GPIO.LOW)
     GPIO.output(e2, GPIO.HIGH)

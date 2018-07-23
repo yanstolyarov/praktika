@@ -23,6 +23,12 @@ import serial as S
 #MD.stop()
 #1 - left, 2 - right, x - power(0-100)
 
+#side = right
+t_a = 0.9 #time of moving forward/backward to make 1 step
+t_b = 0.9 #time for turn on 90 degrees
+p_s = 30 #power for steps
+p_t = 30 #power for turns
+c_a = 10 #dalnomer critical value
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.IN)
@@ -68,22 +74,84 @@ def anykey():
 init_anykey()
 #counter = 0
 while True:
-  #print 'Operation: ', counter
-  #counter = counter + 1
-  # any algorithm code
-  # can be put here
+    but_f = button1_status()
+    dm_2 = S.dm_2()
+    print('button: ',but_f, 'distance: ', dm_2)
+    #print 'Operation: ', counter
+    #counter = counter + 1
+    # any algorithm code
+    # can be put here
 
-  # check for buttons pressed
-  key = anykey()
-  if key == chr(119):
-    print 'forward'
-  if key == chr(115):
-    print ('reverse')
-  if key == chr(100):
-    print ('right')
-  if key == chr(97):
-    print ('left')
-  if key == chr(32):
-    print ('stop')
+    # check for buttons pressed
+    key = anykey()
+    if key == chr(119):
+        print 'forward'
+        MD.all_motor_(p_s)
+        time.sleep(t_a)
+        MD.stop()
+    if key == chr(115):
+        print ('reverse')
+        MD.all_motor_(-p_s)
+        time.sleep(t_a)
+        MD.stop()
+    if key == chr(100):
+        print ('right')
+        MD.motor_1(p_t)
+        MD.motor_2(-p_t)
+        time.sleep(t_b)
+        MD.stop()
+    if key == chr(97):
+        print ('left')
+        MD.motor_1(-p_t)
+        MD.motor_2(p_t)
+        time.sleep(t_b)
+        MD.stop()
 
-  time.sleep(0.2)
+    if key == chr(32):
+        print ('stop')
+        MD.stop()
+        break
+
+#начало алгоритма
+    if but_f == 0 and dm_2 <= c_a:
+        MD.all_motor_(p_s)
+        time.sleep(t_a)
+        MD.stop()
+
+    if but_f == 0 and dm_2 > c_a:
+        MD.all_motor(p_s)
+        time.sleep(t_a)
+        MD.stop()
+        MD.motor_1(p_t)
+        MD.motor_2(-p_t)
+        time.sleep(t_b)
+        MD.stop()
+        MD.all_motor(p_s)
+        time.sleep(t_a)
+        MD.stop()
+
+    if but_f == 1 and dm_2 <= c_a:
+        MD.all_motor(-p_s)
+        time.sleep(t_a)
+        MD.stop()
+        MD.motor_2(p_t)
+        MD.motor_1(-p_t)
+        time.sleep(t_b)
+        MD.stop()
+        MD.all_motor(p_s)
+        time.sleep(t_a)
+        MD.stop()
+
+    if but_f == 1 and dm_2 <= c_a:
+        MD.all_motor(-p_s)
+        time.sleep(t_a)
+        MD.stop()
+        MD.motor_1(p_t)
+        MD.motor_2(-p_t)
+        time.sleep(t_b)
+        MD.stop()
+        MD.all_motor(p_s)
+        time.sleep(t_a)
+        MD.stop()
+#конец
+    time.sleep(0.2)
