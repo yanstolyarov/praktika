@@ -94,7 +94,7 @@ while True:
         print ('left')
     if key == chr(32):
         print ('stop')
-
+#начало алгоритма
     if but_f == 0 and dm_2 <= c_a:
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_a)
@@ -135,5 +135,5 @@ while True:
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_a)
         MD.stop()
-
+#конец
     time.sleep(0.2)
