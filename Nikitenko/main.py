@@ -97,25 +97,25 @@ while True:
         MD.stop()
         dm_1 = DS1.dm_1()
         if DS1.dm_1() < l:        
-        MD.motor_pwm_forw_1(p8)
+        MD.motor_pwm_rerverse_1(p8)
         MD.motor_pwm_forw_2(p7) 
         time.sleep(1)
         MD.stop() 
         dm_1 = DS1.dm_1()
             if DS1.dm_1() < l:
                 MD.motor_pwm_forw_1(p6)
-                MD.motor_pwm_forw_2(p5) 
+                MD.motor_pwm_reverse_2(p5) 
                 time.sleep(1)
                 MD.stop()       
     else:
-        MD.motor_pwm_forw_1(p4)
+        MD.motor_pwm_reverse_1(p4)
         MD.motor_pwm_forw_2(p3)
         time.sleep(1)
         MD.stop()
         dm_1 = DS1.dm_1()
         if DS1.dm_1() < l:
             MD.motor_pwm_forw_1(p6)
-            MD.motor_pwm_forw_2(p5) 
+            MD.motor_pwm_reverse_2(p5) 
             time.sleep(1)
             MD.stop() 
   # check for buttons pressed
