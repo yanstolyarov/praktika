@@ -20,12 +20,12 @@ import serial1 as S
 #1 - left, 2 - right, x - power(0-100)
 
 #side = right
-t_a = 0.4 #time of moving forward/backward to make 1 step
-t_b = 0.4 #time for turn on 90 degrees
-t_c = 0.5 #time for come in turn
-t_d = 1 #time for come out of turn
-p_s = 35 #power for steps
-p_t = 38 #power for turns
+t_a = 0.2 #time of moving forward/backward to make 1 step
+t_b = 0.5 #time for turn on 90 degrees
+t_c = 0.2 #time for come in turn
+t_d = 2.2 #time for come out of turn
+p_s = 30 #power for steps
+p_t = 35 #power for turns
 c_a = 31 #dalnomer critical value
 
 GPIO.setmode(GPIO.BCM)
@@ -98,22 +98,20 @@ while True:
         but_f = button1_status()
         dm_2 = S.dm_2()
         print('button: ',but_f, 'distance: ', dm_2)
-        time.sleep(0.5)
+        time.sleep(0.1)
 
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_a)
         MD.stop()
         but_f = button1_status()
-        dm_2 = S.dm_2()
-        print('button: ',but_f, 'distance: ', dm_2)
-        time.sleep(0.5)
+        time.sleep(0.1)
 
     if but_f == 0 and dm_2 > c_a:
         MD.stop()
         but_f = button1_status()
         dm_2 = S.dm_2()
         print('button: ',but_f, 'distance: ', dm_2)
-        time.sleep(0.5)
+        time.sleep(0.1)
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_c)
         MD.stop()
@@ -125,18 +123,16 @@ while True:
         time.sleep(t_d)
         MD.stop()
         but_f = button1_status()
-        dm_2 = S.dm_2()
-        print('button: ',but_f, 'distance: ', dm_2)
-        time.sleep(0.5)
+        time.sleep(0.1)
 
     if but_f == 1 and dm_2 <= c_a:
         MD.stop()
         but_f = button1_status()
         dm_2 = S.dm_2()
         print('button: ',but_f, 'distance: ', dm_2)
-        time.sleep(0.5)
+        time.sleep(0.1)
         MD.all_motor_pwm_reverse(p_s)
-        time.sleep(t_a + 1)
+        time.sleep(t_a)
         MD.stop()
         MD.motor_pwm_forw_1(p_t)
         MD.motor_pwm_reverse_2(p_t)
@@ -145,10 +141,7 @@ while True:
         MD.all_motor_pwm_forward(p_s)
         time.sleep(t_c)
         MD.stop()
-        but_f = button1_status()
-        dm_2 = S.dm_2()
-        print('button: ',but_f, 'distance: ', dm_2)
-        time.sleep(0.5)
+        time.sleep(0.1)
 
 #    if but_f == 1 and dm_2 > c_a:
  #       MD.stop()
